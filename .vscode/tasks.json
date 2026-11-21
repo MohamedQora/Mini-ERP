@@ -3,7 +3,7 @@
   "tasks": [
     {
       "label": "Mini ERP: تشغيل محلي",
-      "type": "shell",
+      "type": "process",
       "command": "powershell",
       "args": [
         "-NoProfile",

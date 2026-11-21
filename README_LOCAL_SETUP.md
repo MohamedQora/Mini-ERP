@@ -4,7 +4,7 @@
 
 - Node.js وnpm لتشغيل واجهة Next.js.
 - Docker Desktop يعمل.
-- Supabase CLI.
+- مهمة VS Code تنزل Supabase CLI بنسخة مثبتة عبر `npx` عند أول تشغيل.
 - `psql` ضمن `PATH`.
 
 ## التشغيل اليومي من VS Code
@@ -13,7 +13,12 @@
 
 في أول تشغيل قد ينزل `npx` نسخة CLI المثبتة للمهمة، وقد يثبت السكربت اعتماديات الواجهة إذا لم تكن موجودة. يتطلب ذلك اتصالاً بالإنترنت في المرة الأولى. بعدها يكفي تشغيل المهمة، ثم فتح `http://localhost:3000`.
 
-لإيقاف واجهة Next.js اضغط `Ctrl+C` في طرفية المهمة. تبقى قاعدة Docker المحلية محفوظة؛ لإيقاف خدمات Supabase يدوياً نفذ `npx --yes supabase@3.2.0 stop` من جذر المشروع.
+لإيقاف واجهة Next.js اضغط `Ctrl+C` في طرفية المهمة. تبقى قاعدة Docker المحلية محفوظة. لإيقاف خدمات Supabase يدوياً نفذ من جذر المشروع:
+
+```powershell
+$env:SUPABASE_DB_MAJOR_VERSION = '17'
+npx --yes supabase@3.2.0 stop
+```
 
 ## قاعدة Supabase المحلية
 
