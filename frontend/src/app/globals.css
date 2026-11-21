@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "@fontsource-variable/montserrat";
+@import "@fontsource-variable/noto-sans-arabic";
+
+/* ---------------------------------------------------------------------------
+   Official design tokens (Mini ERP)
+   navy #092134 · emerald #1F7A63 · gray #9AA3A8 · background #F5F7FA
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-navy: #092134;
+  --color-navy-2: #102c43;          /* navy lifted ~6% for hover/selected on navy surfaces */
+  --color-emerald: #1f7a63;
+  --color-emerald-dark: #196551;    /* hover */
+  --color-emerald-soft: #e6f2ee;    /* tint for selected rows / soft badges */
+  --color-gray: #9aa3a8;            /* borders, icons, disabled */
+  --color-muted: #5b676e;           /* gray darkened for readable secondary text (AA on white) */
+  --color-canvas: #f5f7fa;
+  --color-line: #e1e5e8;            /* subtle border (gray tint) */
+  --color-line-strong: #cbd1d5;
+
+  /* restrained semantic colors */
+  --color-success: #1f7a63;
+  --color-warning: #a8670c;
+  --color-warning-soft: #fbf1e0;
+  --color-danger: #b42318;
+  --color-danger-soft: #fbeae8;
+  --color-info: #1d5f8a;
+  --color-info-soft: #e5f0f7;
+
+  --font-sans: "Montserrat Variable", "Noto Sans Arabic Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --shadow-card: 0 1px 2px rgb(9 33 52 / 0.05);
+  --shadow-pop: 0 8px 24px rgb(9 33 52 / 0.14);
+}
+
+html { background: var(--color-canvas); }
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-navy);
+  background: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 2px solid var(--color-emerald); outline-offset: 2px; }
+
+/* ---------------------------------------------------------------------------
+   Typographic hierarchy
+   --------------------------------------------------------------------------- */
+@utility t-page-title { font-size: 20px; line-height: 28px; font-weight: 600; color: var(--color-navy); letter-spacing: -0.01em; }
+@utility t-section    { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--color-navy); }
+@utility t-body       { font-size: 14px; line-height: 21px; font-weight: 400; }
+@utility t-table      { font-size: 13px; line-height: 18px; font-weight: 400; }
+@utility t-th         { font-size: 11.5px; line-height: 16px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); }
+@utility t-label      { font-size: 12.5px; line-height: 18px; font-weight: 500; color: var(--color-navy); }
+@utility t-support    { font-size: 12px; line-height: 17px; font-weight: 400; color: var(--color-muted); }
+@utility t-number     { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum" 1, "lnum" 1; }
+@utility t-kpi        { font-size: 24px; line-height: 30px; font-weight: 600; font-variant-numeric: tabular-nums lining-nums; letter-spacing: -0.01em; }
+
+/* Arabic reads slightly smaller in Montserrat-fallback; give it a little air */
+html[lang="ar"] body { line-height: 1.65; }
+
+/* native <dialog> reset (in base layer so utility classes on Dialog/Drawer win) */
+@layer base {
+  dialog { padding: 0; border: 0; background: transparent; max-width: none; max-height: none; color: inherit; }
+  dialog::backdrop { background: rgb(9 33 52 / 0.45); }
+}
